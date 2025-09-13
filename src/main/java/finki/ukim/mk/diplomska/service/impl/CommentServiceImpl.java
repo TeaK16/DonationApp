@@ -34,7 +34,7 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> listCommentsByPost(UUID uuid) throws PostNotFoundException {
         List<Comment> comments = new ArrayList<>();
         Post post = postRepository.findById(uuid).orElseThrow(PostNotFoundException::new);
-        comments  = commentRepository.findCommentsByPost(post);
+        comments  = commentRepository.findCommentsByPostOrderByDateTimeCreationDesc(post);
         return comments;
     }
 

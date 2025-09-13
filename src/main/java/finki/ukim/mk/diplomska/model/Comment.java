@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -21,6 +22,7 @@ public class Comment {
     public UUID id;
     public String description;
     public Integer likes;
+    public LocalDateTime dateTimeCreation;
     @ManyToOne
     ApplicationUser user;
     @ManyToOne
@@ -32,6 +34,7 @@ public class Comment {
         this.likes = 0;
         this.user = user;
         this.post = post;
+        this.dateTimeCreation = LocalDateTime.now();
     }
 
 

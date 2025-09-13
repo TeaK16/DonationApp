@@ -11,5 +11,5 @@ import java.util.UUID;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, UUID> {
 
-    List<Comment> findCommentsByPost(Post post);
+    List<Comment> findCommentsByPostOrderByDateTimeCreationDesc(Post post);
 }
